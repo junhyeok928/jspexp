@@ -1,0 +1,32 @@
+# jps 지식체계 계열화
+1. 웹프로그래밍에 대한 이해
+	1) network: ip, port
+	2) client/server
+2. web 프로젝트 만들기 및 환경 설정
+3. jps의 기본
+	1) jsp 페이지의 구성요소
+	2) 디렉티브 : jps 상단에 <% 옵션들
+	3) 스크립트 요소 : declare<%!, scriptlet<%, expression<%=
+	4) 요청 기본 객체(request)
+	5) 반응 기본 객체(response)
+4. java와 jsp
+	1) jsp에서 java코드의 사용
+	2) 조건문 반복문 처리
+5. 기본 객체와 영역
+	1) 기본 객체
+	2) 범위에 따른 객체
+		page
+		request
+		session
+		application
+6. 페이지 모듈화와 요청 흐름제어
+7. 에러처리
+8. 클라이언트와 대화
+	1) 쿠키(클라이언트에 저장)
+	2) 세션(서버에 저장)
+9. useBean 활용
+10. 태그
+	1) el
+	2) jstl
+11. MVC 개발 패턴
+12. ajax를 위한 jsp 데이터 처리

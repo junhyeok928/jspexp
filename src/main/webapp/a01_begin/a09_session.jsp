@@ -23,10 +23,15 @@
 <%--
 # session 객체
 1. 브라우저와 서버가 연결된 상황에서 데이터를 유지하는 객체..
+	1) 같은 브라우저와 서버의 연결된 상황에서 처리할 수 있다.
 2. 기본 session 설정
 	저장 :session.setAttribute("키","값");
 	저장된 값 가져오기:session.getAttribute("키");
- 
+3. session scope 아래의 4가지가 있다.
+	1) page : 페이지 단위로만 설정가능
+	2) request : 요청되는 페이지 까지 설정 유지
+	3) session : 서버와 클라이언트 단위까지 설정유지
+	4) application : 서버가 꺼지지 않는 이상 유지
 --%>
 //
 	$(document).ready(function(){
