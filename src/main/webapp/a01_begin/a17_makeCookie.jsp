@@ -2,9 +2,7 @@
     pageEncoding="UTF-8"
     import="java.util.*"
     import="jspexp.z01_vo.*"
-    import="jspexp.a03_database.*" 
-    isErrorPage="true"
-     %><%-- 에러를 처리해주는 페이지.. --%>
+    import="jspexp.a03_database.*"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <c:set var="path" value="${pageContext.request.contextPath}"/> 
@@ -33,11 +31,26 @@
 </script>
 </head>
 <body>
-	<h3>요청시 에러가 발생했습니다.!!</h3>
+	<%
+	String ckname= request.getParameter("ckname");
+	String ckvalue= request.getParameter("ckvalue");
+	if(ckname!=null&&ckvalue!=null){ // 요청값이 있을 때, 쿠키값 생성.
+		response.addCookie(new Cookie(ckname,ckvalue));
+	%>
+		<script>
+			alert("쿠키 생성 및 추가!!");
+		</script>
+	<%
+	}
+	%>
+	<h3>쿠키값 설정하기(영문으로만)..</h3>
+	<form>
 	<table>
-		<tr><th>에러 타입</th><td><%=exception.getClass().getName() %></td></tr>
-		<tr><th>에러 메시지</th><td><%=exception.getMessage()%></td></tr>
-		<tr><th  colspan="2">잠시만 기다리시면 담당자와 통화를 할 수 있습니다.</th></tr>
+		<tr><th>쿠키이름</th><td><input type="text" name="ckname"/></td></tr>
+		<tr><th>쿠키값</th><td><input type="text" name="ckvalue"/></td></tr>
+		<tr><td colspan="2"><input type="submit" value="쿠키설정"/></td></tr>
 	</table>
+	</form>
+	<h3 onclick="location.href='a18_showCookie.jsp'">저장되어 있는 쿠키값 확인하러 가기</h3>
 </body>
 </html>

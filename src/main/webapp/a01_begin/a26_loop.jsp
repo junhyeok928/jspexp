@@ -2,9 +2,7 @@
     pageEncoding="UTF-8"
     import="java.util.*"
     import="jspexp.z01_vo.*"
-    import="jspexp.a03_database.*" 
-    isErrorPage="true"
-     %><%-- 에러를 처리해주는 페이지.. --%>
+    import="jspexp.a03_database.*"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <c:set var="path" value="${pageContext.request.contextPath}"/> 
@@ -23,8 +21,15 @@
   src="${path}/a00_com/jquery-3.5.1.js"></script>
 <script type="text/javascript">
 <%--
- 
- 
+# jstl을 활용한 반복문 처리.
+1. 기본 형식
+	<c:forEach var="변수명" begin="시작" end="마지막변수" step="증감단위>
+		${변수명}
+	</c:forEach> 
+ 	vs. for문
+ 	for(int 변수명=시작; 변수명<=마지막변수; 변수명+=증감단위){
+ 		변수명
+ 	}
 --%>
 //
 	$(document).ready(function(){
@@ -33,11 +38,22 @@
 </script>
 </head>
 <body>
-	<h3>요청시 에러가 발생했습니다.!!</h3>
+	<h3>반복문1(숫자카운트 처리)</h3>
 	<table>
-		<tr><th>에러 타입</th><td><%=exception.getClass().getName() %></td></tr>
-		<tr><th>에러 메시지</th><td><%=exception.getMessage()%></td></tr>
-		<tr><th  colspan="2">잠시만 기다리시면 담당자와 통화를 할 수 있습니다.</th></tr>
+		<tr>
+			<c:forEach var="cnt" begin="1" end="10" step="2">
+				<td>${cnt}</td>
+			</c:forEach>
+		</tr>
 	</table>
+	<%-- ex) 10~30까지 3단위로 행으로 출력하세요.. --%>
+	<table>
+		<c:forEach var="cnt" begin="10" end="30" step="3">
+		<tr>
+			<td>${cnt}</td>
+		</tr>
+		</c:forEach>
+	</table>
+	
 </body>
 </html>

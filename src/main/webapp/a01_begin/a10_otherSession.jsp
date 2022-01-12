@@ -34,7 +34,7 @@
 	<h3>다음 페이지에서 session 값 확인</h3>
 	<table>
 		<tr><th>세션값 확인..</th></tr>
-		<tr><td><%=session.getAttribute("sess01") %></td></tr>
+		<tr><td><%=session.getAttribute("sess01")%></td></tr>
 	</table>
 </body>
 </html>

@@ -2,9 +2,7 @@
     pageEncoding="UTF-8"
     import="java.util.*"
     import="jspexp.z01_vo.*"
-    import="jspexp.a03_database.*" 
-    isErrorPage="true"
-     %><%-- 에러를 처리해주는 페이지.. --%>
+    import="jspexp.a03_database.*"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <c:set var="path" value="${pageContext.request.contextPath}"/> 
@@ -33,11 +31,19 @@
 </script>
 </head>
 <body>
-	<h3>요청시 에러가 발생했습니다.!!</h3>
+	<h3>useBean scop범위</h3>
+	<%--p01(범위-page) prd(범위-session) --%>
 	<table>
-		<tr><th>에러 타입</th><td><%=exception.getClass().getName() %></td></tr>
-		<tr><th>에러 메시지</th><td><%=exception.getMessage()%></td></tr>
-		<tr><th  colspan="2">잠시만 기다리시면 담당자와 통화를 할 수 있습니다.</th></tr>
+		<tr><th>사람의 이름(page)</th><td>${p01.name}</td></tr>
+		<%-- p01.getName()을 el의 property 형식으로 처리 --%>
+		<tr><th>물건명(session) </th><td>${prd.name}</td></tr>
+		<%-- prd.getName()을 el의 property 형식으로 처리 --%>
+	<%--
+	a21_useBean.jsp 를 통해서 useBean으로 page범위로 객체 Dept선언하고 할당-script/출력-el로
+							useBean으로 session범위로 객체 Emp선언하고 할당-script/출력-el로
+	a22_showBean.jsp를 통해서 부서명과 사원명을 el로 출력하세요.
+	~						
+	 --%>	
 	</table>
 </body>
 </html>

@@ -21,7 +21,7 @@
   src="${path}/a00_com/jquery-3.5.1.js"></script>
 <script type="text/javascript">
 <%--
-# form 형태의 요청처리
+# form형태 요청처리
 1. form의 속성
 	1) action="요청할 페이지" : 해당 속성 설정하지 않을 시,
 		현재페이지가 요청된다.
@@ -48,20 +48,25 @@
 	<h3>form형태 데이터 처리</h3>
 	<form>
 	<table>
-		<tr><th>물건명</th><td><input type="text" name="pname"></td></tr>
-		<tr><th>가격</th><td><input type="text" name="price"></td></tr>
-		<tr><th>갯수</th><td><input type="text" name="cnt"></td></tr>
-		<tr><td colspan="2"><input type="submit" value="구매"></td></tr>
-	</table></form>
+		<tr><th>물건명</th><td><input type="text" name="pname"/></td></tr>
+		<tr><th>가격</th><td><input type="text" name="price"/></td></tr>
+		<tr><th>갯수</th><td><input type="text" name="cnt"/></td></tr>
+		<tr><td colspan="2"><input type="submit" value="구매"/></td></tr>
+	</table>
+	</form>
 	<%
 	String pname = request.getParameter("pname");
 	String price = request.getParameter("price");
 	String cnt = request.getParameter("cnt");
-	if(pname!=null){	//요청값이 있을때, 출력 처리
+	if(pname!=null){ //요청값이 있을 때, 출력 처리.
 	%>
 		<h4>물건명:<%=pname %></h4>
 		<h4>가격:<%=price %></h4>
 		<h4>갯수:<%=cnt %></h4>
-	<%} %>
+	<%}%>
+	<%--ex) a04_requestFormExp.jsp를 만들고, 학생명, 국어, 영어, 수학 점수를 입력받아 출력하게 하세요
+		~11:21 풀이합니다.
+	
+	 --%>
 </body>
 </html>

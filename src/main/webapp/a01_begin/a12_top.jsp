@@ -31,7 +31,7 @@
 </script>
 </head>
 <body>
-	<h3>제목</h3>
+	<h3>외부 페이지 내용</h3>
 	<table>
 		<tr><th>타이틀</th></tr>
 		<tr><td>내용</td></tr>
