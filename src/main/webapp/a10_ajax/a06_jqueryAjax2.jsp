@@ -26,30 +26,17 @@
 --%>
 //
 	$(document).ready(function(){
-		$("h3").click(function(){
-			// 1. ajax를 위한 XMLHttpRequest객체 생성
-			var xhr = new XMLHttpRequest();
-		    console.log(xhr);
-			// 2. 동기방식으로 가져오기..
-			//		xhr.open("get","요청서버주소",비동기여부)
-			//xhr.open("get","z01_data.txt",false)
-			xhr.open("get","${path}/mvc01.do",false)
-			//	  동기방식은 요청하면 결과가 올 때까지 기다리다가 받아서
-			///   처리..
-			xhr.send();
-			// 3. 서버에서 온 문자열 확인
-			alert(xhr.responseText);
-			$("td").text(xhr.responseText)
-		});
-		// ex) a02_ajaxExp.jsp 만들고,  z02_data.txt(반가워요 연습완료)
-		//     를 호출하여 출력하게 하세요..
+		
 	});
 </script>
 </head>
 <body>
-	<h3>ajax호출</h3>
+	<%--
+	ex) A06_ControllerAjax.java
+	 --%>
+	<h3>제목</h3>
 	<table>
-		<tr><th>서버에서 온 데이터</th></tr>
+		<tr><th>타이틀</th></tr>
 		<tr><td>내용</td></tr>
 	</table>
 </body>

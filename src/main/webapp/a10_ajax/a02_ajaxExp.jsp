@@ -28,19 +28,18 @@
 	$(document).ready(function(){
 		$("h3").click(function(){
 			var xhr = new XMLHttpRequest();
-		    console.log(xhr);
-			xhr.open("get","z02_data.txt",false)
+			xhr.open("get","z02_data.txt",false);
 			xhr.send();
 			alert(xhr.responseText);
-			$("td").text(xhr.responseText)
+			$("td").text(xhr.responseText);
 		});
 	});
 </script>
 </head>
 <body>
-	<h3>ajax호출</h3>
+	<h3>ajax 연습</h3>
 	<table>
-		<tr><th>서버에서 온 데이터</th></tr>
+		<tr><th>데이터</th></tr>
 		<tr><td>내용</td></tr>
 	</table>
 </body>
