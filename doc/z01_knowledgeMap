@@ -7,6 +7,18 @@
 	localhost : 원격에 있는 경우 ip주소를 mapping하여 호출하여 처리 된다.
 	7080 : 특정한 webserver의 port번호, 여러 개의 port를 사용할 수 있다
 	프로젝트명/특정한포드/파일명.jsp : 특정한 경로에 있는 자원의 위치
+	# 요청(request), 반응 (response)
+	client (브라우저) <==========> server(톰캣)
+			url 입력  ===========> 자원을 찾아서 jsp의 경우 컴파일, html 변환
+								   controller(MVC) 문자열 전달/jsp 호출
+받은 자원화면 레더링  <=========== 해당 자원 (소스-html(css,js), jsp)
+	0) jquery string : 요청페이지?key1=value1&key2=value2
+	1) cookie
+	2) session
+	3) 요청값/반응값의 한글 처리, 숫자형 변환 처리(Integer.parseInt), null값 처리..
+	4) 기본 코드와 el, jstl 처리..
+		${param.요청키)
+	
 	
 2. web 프로젝트 만들기 및 환경 설정
 	1) jsp 환경 : 프로젝트 만들고, port설정, 웹어플리케이션 서버 설정 및 연동 처리
@@ -20,6 +32,8 @@
 3. jsp의 기본
 	1) jsp 페이지의 구성요소
 	2) 디렉티브 : jsp 상단에 <% 옵션들
+		<%@ page
+		<%@ include
 	3) 스크립트 요소 : declare<%!, scriptlet<%, expression<%=
 	4) 요청 기본 객체(request)
 	5) 반응 기본 객체(response)
@@ -29,20 +43,40 @@
 	3) 데이터베이스연동 처리
 5. 기본 객체와 영역
 	1) 기본 객체
-	2) 범위에 따른 객체
-		page
-		request	
-		session
+	2) 범위에 따른 객체(변수가 선언되고 그 변수의 유지기간에 따른 분류)
+		page (pageContext) : 현재 페이지에서만 사용가능
+		request	: 요청값을 처리된 페이지까지 사용가능 submit() 페이지?요청=요청값
+		session : 브라우저와 서버가 연결된 상태까지 사용가능 cf) a href, location.href등으로도 유지 가능 
 		application
 6. 페이지 모듈화와 요청 흐름제어
+	1) 한 페이지에서 여러가지 페이지를 호출하여, 재사용화면을 구성하게 처리하는 것을 말한다.
+	2) iframe, <jsp:include>, <%@ include file=""/> 
 7. 에러처리
 	- 각페이지별로 에러가 발생했을 때, 처리하는 부분
 	- 서버단위로 에러를 처리하는 부분.
 8. 클라이언트와 대화
-	1) 쿠키(클라이언트에 저장)
+	1) 쿠키(클라이언트에 저장) : 
+		Cookie c1 = new Cookie(key, value);
+		response.addCookie(c1);
+		Cookie[] cookies = request.getCookies();
 	2) 세션(서버에 저장)
+		session.setAttribute("key", value);
+		session.getAttribute("key");
+		<jsp:userBean csope="session"/>
+		<c:set var="" value="" scope="session"/>
+		${변수명}
 9. useBean 활용
-10. 태그
+	1) 객체 선언
+		<jsp:userBean id="" class="패키지명.클래스명" scope="세션scope"/>
+		<jsp:setProperty name="아이디명" value="저장할 데이터"/>
+		<% 아이디명.set프로퍼터(저장데이터) %>
+		${아이디명.set프로퍼티(저장데이터)}
+		<jsp:getProperty name="아이디명" />
+		<% 아이디명.get프로퍼터()%>
+		***${아이디명.프로퍼터}
+		
+	2) 요청값 자동 객체 ***
+10. 태그lib
 	1) el
 	2) jstl
 11. MVC 개발 패턴	

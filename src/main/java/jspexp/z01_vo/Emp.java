@@ -20,23 +20,23 @@ public class Emp {
 		this.comm = comm;
 		this.deptno = deptno;
 	}
+
+	public Emp(String ename, String job, double sal, String hiredateS, int deptno, int empno) {
+		super();
+		this.empno = empno;
+		this.ename = ename;
+		this.job = job;
+		this.hiredateS = hiredateS;
+		this.sal = sal;
+		this.deptno = deptno;
+	}
+
 	private double sal;
 	private double comm;
 	private int deptno;
 	public Emp() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-	public Emp(int empno, String ename, String job, int mgr, Date hiredate, double sal, double comm, int deptno) {
-		super();
-		this.empno = empno;
-		this.ename = ename;
-		this.job = job;
-		this.mgr = mgr;
-		this.hiredate = hiredate;
-		this.sal = sal;
-		this.comm = comm;
-		this.deptno = deptno;
 	}
 	public int getEmpno() {
 		return empno;

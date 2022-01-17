@@ -1,0 +1,38 @@
+# ajax DB 처리.
+1. controller, ajax 단계이해
+	controller 단계에서 ajax전송 데이터 확인
+2. 객체의 json문자열 처리 이해하기
+	- 자바의 객체를 기준으로 json로 변경
+		class Person{
+			private String name;
+			private int age;
+		}
+		==> Person p01 = new Person("홍길동", 25);
+		==> 
+		var p01 ={"name","","age",25};
+	- 효과적인 처리를 이용해서 만들어진 api를 활용
+		Gson : 객체를 json데이터로 변환, json데이터를 객체로 변환.
+3. controlloer를 통한 데이터 가져오기
+	DB 연동, JSON 데이터 만들기
+4. 요청값을 통한 데이터 가져오기
+
+# ajax처리를 위한 내용
+1. controller json DB 처리
+2. jsp에서 jquery ajax 처리방식
+	1) controller(/ajaxExp01) 화면 버튼 클릭시 "서버호출" 출력
+	2) controller(/ajaxExp02) 선수명[	] 버튼 클릭시
+	3) controller(/ajaxExp03) 버튼 클릭시 {"todya"}
+3. $.each 구문을 통한 배열형 객체
+
+# ajax를 위한 연습
+1. json에 대한 이해
+2. 요청값에 대한 이해
+3. controller의 선언과 호출에 대한 이해
+	- 문자열로 데이터 받는 처리.
+		out.print("json문자열")
+4. jsp(html)
+	1) jquery ajax 호출 처리방법
+		- query string : data:"", ==> controller에 요청값 영향
+		- success:function(data){}==> controller의
+			out.print("json문자열")
+		
