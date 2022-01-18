@@ -1,0 +1,11 @@
+2022-01-14
+[1단계:개념] 1. js에 ajax 처리 open("매개1","매개2","매개3") 매개변수의 속성의 의미를 기술하세요.
+[1단계:개념] 2. xhr.readyState, xhr.status의 상태값의 의미를 기술하세요.
+[1단계:개념] 3. xhr.responseText가 가르키는 것은 무엇인가.
+[1단계:개념] 4. JSON.parse()는 어떤 역할을 하는지 예제로 기술하세요!
+[1단계:개념] 5. jquery ajax의 기본 속성과 선언 방법을 기술하세요.
+[1단계:확인] 6. 아래와 같은 단계별 데이터 처리를 jquery ajax를 통해서 처리해보세요.
+              1)  controller(/ajaxExp01)  화면 버튼 클릭시  "서버호출" 출력
+              2)  controller(/ajaxExp02)  선수명[  ] 버튼 클릭시  요청값 출력
+              3)  controller(/ajaxExp03)  버튼 클릭시 {"today","2022/01/01"} 호출
+

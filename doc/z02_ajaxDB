@@ -35,4 +35,12 @@
 		- query string : data:"", ==> controller에 요청값 영향
 		- success:function(data){}==> controller의
 			out.print("json문자열")
-		
+
+# ajax 화면 구현
+1. 기본화면 구현
+	id[		]
+	pass[	]
+		[로그인]
+	이 화면을 통해서 구현할 내용이 무엇인가?
+	아이디와 패스워드를 입력해서 로그인했을 때, 처리할 부분을 어떻게 하는가?
+2. 

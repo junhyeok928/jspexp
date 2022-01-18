@@ -26,21 +26,18 @@
 --%>
 //
 	$(document).ready(function(){
+		// EX) dept리스트도 키인으로 처리되게 하세요..
 		$("#schBtn").click(function(){
-			/* alert("ajax DB데이터 가져오기"); */
 			$.ajax({
 				url:"${path}/deptAjax.do",
 				dataType:"json",
-				success:function(data){
-
+				success:function( dList ){
 					var listTxt = "";
-					//$.each(배열, function(index, 단위데이터{}))
-					$.each(deptList,function(idx, dept){
-						console.log(idx+":"+dept);
-						listTxt+="<tr><td>"+dept.deptno+"</td><td>"+dept.dname+"</td>"+
-							"<td>"+dept.loc+"</td></tr>";
+					$.each(dList,function(idx, dept){
+						listTxt += "<tr><td>"+dept.deptno+
+						"</td><td>"+dept.dname+"</td><td>"+dept.loc+"</td></tr>";
 					});
-					$("#show").html(listTxt);
+					$("#show").html(listTxt)
 				}
 			});
 		});
@@ -49,31 +46,34 @@
 				url:"${path}/deptAjax.do",
 				data:"loc="+$("[name=loc]").val(),
 				dataType:"json",
-				success:function(dList){
+				success:function( dList ){
 					var listTxt = "";
-					$.each(deptList,function(idx, dept){
-						console.log(idx+":"+dept);
-						listTxt+="<tr><td>"+dept.deptno+"</td><td>"+dept.dname+"</td>"+
-							"<td>"+dept.loc+"</td></tr>";
+					$.each(dList,function(idx, dept){
+						listTxt += "<tr><td>"+dept.deptno+
+						"</td><td>"+dept.dname+"</td><td>"+dept.loc+"</td></tr>";
 					});
-					$("#show").html(listTxt);
+					$("#show").html(listTxt)
+				},
+				error:function(err){
+					console.log("#에러코드#");
+					console.log(err);
 				}
-			})
-		})
+					
+			});
+		});
 	});
 </script>
 </head>
 <body>
-	<h3>DB ajax 처리(dept)</h3>
+	<h3>부서정보(ajax)</h3>
 	<table>
 		<tr><th>부서위치</th><td><input type="text" name="loc"/></td></tr>
 		<tr><td colspan="2"><input type="button" id="schBtn" value="조회"/></td></tr>
 	</table>
 	<table>
-		<thead>
-			<tr><th>회사번호</th><th>회사이름</th><th>지역</th></tr>
-		</thead>
+		<tr><th>부서번호</th><th>부서명</th><th>부서위치</th></tr>
 		<tbody id="show"></tbody>
-	</table>
+		
+	</table>	
 </body>
 </html>

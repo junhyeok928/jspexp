@@ -1,0 +1,9 @@
+# jsp 지식계열화 check point
+1. 웹프로그램에서 server와 client란 무엇이며, client는 서버를 접속할 때,
+	어떻게 접속하는가?
+	
+2. 웹프로그램에서 요청값이란 무엇이며, 반응값은 무엇을 말하는가?
+
+3. 요청값의 형태인 query string이 무엇인지 아는가?
+
+4. 웹서버호출시 구성요서인 http://localhost:7080/jsexp/call.jsp를 아는가
