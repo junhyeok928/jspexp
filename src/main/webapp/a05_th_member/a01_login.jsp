@@ -21,8 +21,7 @@
   src="${path}/a00_com/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 <%--
- 
- 
+
 --%>
 //
 <%

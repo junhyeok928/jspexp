@@ -30,6 +30,11 @@
 			}
 		});
 	});
+	function goMyPage(){
+		if(confirm("회원정보화면으로\n이동하시겠습니까?")){
+			location.href="a04_myPage.jsp"
+		}
+	}
 </script>
 </head>
 <body>
@@ -38,7 +43,7 @@
 	Member m = (Member)session.getAttribute("mem");
 	%>
 	<%if(m!=null){ %><%-- session 값이 있을 때, 즉, 로그인 성공 후, 이 쪽 페이지로 온 경우 --%>
-		<h3 align="right"><%=m.getName() %>님 로그인 중</h3>
+		<h3 align="right" onclick="goMyPage()"><%=m.getName() %>님 로그인 중</h3>
 		<h4 align="right">point:<%=m.getPoint() %></h4>
 		<p align="right"><input type="button" id="logoutBtn" value="로그아웃"/></p>
 	<%}else{%> <%-- 로그인을 하지 않고, 이쪽 페이지가 호출된 경우. --%>

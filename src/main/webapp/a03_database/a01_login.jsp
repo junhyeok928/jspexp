@@ -59,12 +59,30 @@
 	요구사항정의서 : 
 		로그인 : 아이디와 패스워드를 통해서 로그인을 할 수 있다.
 		회원은 아이디, 패스워드, 이름, 권한, 포인트 정보 가지고 있고, 이 내용을 등록하여야 한다.
+		회원정보 클릭 등록된 아이디, 패스워드, 이름, 권한, 포인트 정보를 확인하고,
+			수정 삭제 버튼을 통해서, 수정삭제할 수 있다.
 	DB 설계서
 		회원등록 기준으로 table member
+		insert into member values(?,?,?,?,?)
+		select * from member where id = ?
+		update member
+			set pass = ?
+				name = ?
+				auth = ?
+				point = ?
+			where id = ?
+		delete
+		from member
+		where id = ?
 	화면 설계서
 		아이디 패스워드가 입력되고 로그인 처리되는 화면
+		회원가입 화면
+		회원정보 화면 : 수정
+		
 	front단 화면 구현
-		로그인 화면 구현 (jsp)
+		로그인 화면 구현 (jsp) - js로 유효성, id/pass 입력시 로그인 가능하게
+		a04_member 폴드에 로그인 화면을 구현해주세요..
+		회원가입 form이 있는 jsp 화면(a03_regmember.jsp)
 	backend단 화면 구현
 		Dao 작성
 		로그인 처리요청값 러리

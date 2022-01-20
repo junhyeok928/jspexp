@@ -68,7 +68,7 @@
 	<h3>회원가입</h3>
 	<form method="post">
 	<table>
-		<tr><th>아이디</th><td><input type="text" name="id"/></td></tr>
+		<tr><th>아이디</th><td><input type="text" name="id"/></td></tr> <%-- 현재 id의 등록 여부 확인 --%>
 		<tr><th>패스워드</th><td><input type="password" name="pass"/></td></tr>
 		<tr><th>패스워드확인</th><td><input type="password" name="passCfm"/></td></tr>
 		<tr><th>이름</th><td><input type="text" name="name"/></td></tr>

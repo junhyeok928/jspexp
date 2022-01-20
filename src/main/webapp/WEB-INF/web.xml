@@ -9,4 +9,16 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <!-- 404 : 이 서버에 해당 페이지가 없을 때, 처리하는 페이지 지정 -->
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/a02_middle/a22_noPage.jsp</location>
+  </error-page>
+  <!-- 일반적인 클래스 단위 에러에 대한 처리
+  	프로그램적인 에러에 대한 처리를 서버 단위를 설정할 때..
+   -->
+  <error-page>
+  	<exception-type>java.lang.Exception</exception-type>
+  	<location>/a02_middle/a21_errorPage.jsp</location>
+  </error-page>
 </web-app>

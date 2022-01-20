@@ -1,0 +1,23 @@
+2022-01-20
+[1단계:개념] 1. 서버단위 에러의 처리 방법을 기술하세요.
+web-inf 폴더 하위에 있는 web.xml 파일을 수정한다
+  <error-page>
+  	<exception-type>에러 타입</exception-type>
+  	<location>에러페이지 경로</location>
+  </error-page>
+  에러 페이지는 임포트 단에 isErrorPage="true" 를 작성한다.
+[1단계:개념] 2. session scope 4가지 범위를 설정하고, 
+				이 범위에 따른 페이지 별로 데이터를 확인하세요.
+	<%
+	pageContext.setAttribute("pageVar", "페이지 내에서만 사용");
+	request.setAttribute("reqVar", "forward처리 페이지까지 사용");
+	session.setAttribute("sessVar", "같은 브라우져까지 사용");
+	application.setAttribute("appVar", "서버 유지될때 까지 사용");
+	request.getRequestDispatcher("a28_homework2.jsp").forward(request, response);
+	%>
+	
+	<h3>과제</h3>
+	<h4>page scope : <%=pageContext.getAttribute("pageVar") %></h4>
+	<h4>request scope : <%=request.getAttribute("reqVar") %></h4>
+	<h4>session scope : <%=session.getAttribute("sessVar") %></h4>
+	<h4>application scope : <%=application.getAttribute("appVar") %></h4>
