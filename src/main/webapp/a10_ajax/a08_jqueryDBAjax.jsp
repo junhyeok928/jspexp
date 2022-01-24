@@ -21,8 +21,30 @@
   src="${path}/a00_com/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 <%--
- 
- 
+2. ajax통해서 호출할 자원(controller, jsp지정)
+	1) servlet의 경우는 mapping url 호출..
+		url:"${path}/empAjax.do",
+		==> controller 중에서 urlPatterns = {"/empAjax.do"}
+		로 선언한 부분을 호출한다,
+	2) 서버에 전달할 요청값에 대한 처리
+		data:$("form").serialize(),
+			: jquery에서 아래 query string 형식으로 자동으로 만들어 준다.
+				form하위에 있는 모든 요소객체를 name="key" value="value"
+		data:"key=value&key2=value"
+			enmae=A&job=SA
+		controller
+			request.getParameter("ename")
+			request.getParameter("job")
+	3) url과 요청내용에서  받은 결과를 가져오기..
+		dataType:"json",
+		success:function(data){
+			매개변수인 data를 통해서 받은 데이터
+			[{"empno":7369,"ename":"SMITH","job":"CLERK","mgr":7902,"hiredate":"12월 17, 1980","sal":800.0,"comm":0.0,"deptno":20},{"empno":7499,"ename":"ALLEN","job":"SALESMAN","mgr":7698,"hiredate":"2월 20, 1981","sal":1600.0,"comm":300.0,"deptno":30},{"empno":7521,"ename":"WARD","job":"SALESMAN","mgr":7698,"hiredate":"2월 22, 1981","sal":1250.0,"comm":500.0,"deptno":30},{"empno":7566,"ename":"JONES","job":"MANAGER","mgr":7839,"hiredate":"4월 2, 1981","sal":2975.0,"comm":0.0,"deptno":20},{"empno":7654,"ename":"MARTIN","job":"SALESMAN","mgr":7698,"hiredate":"9월 28, 1981","sal":1250.0,"comm":1400.0,"deptno":30},{"empno":7698,"ename":"BLAKE","job":"MANAGER","mgr":7839,"hiredate":"5월 1, 1981","sal":2850.0,"comm":0.0,"deptno":30},{"empno":7782,"ename":"CLARK","job":"MANAGER","mgr":7839,"hiredate":"6월 9, 1981","sal":2450.0,"comm":0.0,"deptno":10},{"empno":7839,"ename":"KING","job":"PRESIDENT","mgr":0,"hiredate":"11월 17, 1981","sal":5000.0,"comm":0.0,"deptno":10},{"empno":7844,"ename":"TURNER","job":"SALESMAN","mgr":7698,"hiredate":"9월 8, 1981","sal":1500.0,"comm":0.0,"deptno":30},{"empno":7900,"ename":"JAMES","job":"CLERK","mgr":7698,"hiredate":"12월 3, 1981","sal":950.0,"comm":0.0,"deptno":30},{"empno":7902,"ename":"FORD","job":"ANALYST","mgr":7566,"hiredate":"12월 3, 1981","sal":3000.0,"comm":0.0,"deptno":20},{"empno":7934,"ename":"MILLER","job":"CLERK","mgr":7782,"hiredate":"1월 23, 1982","sal":1300.0,"comm":0.0,"deptno":10}]
+ 			dataType의 유형이 text : 문자열 그대로 받기 처리.
+ 				var dataStr = "{\"empno\":7499}";
+ 				
+ 			dataType의 유형이 json : 문자열을 객체로 변환해서 받는다.
+ 				var obj = {empno:7499};
 --%>
 //
 	$(document).ready(function(){

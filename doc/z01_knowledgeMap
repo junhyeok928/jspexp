@@ -35,8 +35,11 @@
 		<%@ page
 		<%@ include
 	3) 스크립트 요소 : declare<%!, scriptlet<%, expression<%=
-	4) 요청 기본 객체(request)
-	5) 반응 기본 객체(response)
+	4) 요청 기본 객체(request) : 클라이언트가 서버에 요청했을 때,
+		요청한 값을 서버에서 확인시
+	5) 반응 기본 객체(response) : 클라이언트에 의해 서버에 url을 통해 요청했을
+		때, 그 결과 화면이나 반응값을 서버가 전달하는 객체
+		html화면, cookie, json 문자열..
 4. java와 jsp
 	1) jsp에서 java코드의 사용
 	2) 조건문 반복문 처리
@@ -47,7 +50,7 @@
 		page (pageContext) : 현재 페이지에서만 사용가능
 		request	: 요청값을 처리된 페이지까지 사용가능 submit() 페이지?요청=요청값
 		session : 브라우저와 서버가 연결된 상태까지 사용가능 cf) a href, location.href등으로도 유지 가능 
-		application
+		application : 서버(tomcat)이 재기동 전까지 현재 서버가 유지되는 기간
 6. 페이지 모듈화와 요청 흐름제어
 	1) 한 페이지에서 여러가지 페이지를 호출하여, 재사용화면을 구성하게 처리하는 것을 말한다.
 	2) iframe, <jsp:include>, <%@ include file=""/> 

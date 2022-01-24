@@ -16,6 +16,11 @@
   </error-page>
   <!-- 일반적인 클래스 단위 에러에 대한 처리
   	프로그램적인 에러에 대한 처리를 서버 단위를 설정할 때..
+  	
+  	# 세부적인 예외에 따라 페이지를 지정할 수도 있다.
+  	1. java.lang.NullPointerException
+  	2. java.lang.ArrayIndexOutOfBoundsException
+  	..
    -->
   <error-page>
   	<exception-type>java.lang.Exception</exception-type>

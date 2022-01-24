@@ -7,6 +7,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <c:set var="path" value="${pageContext.request.contextPath}"/> 
 <fmt:requestEncoding value="UTF-8" /> 
+<%-- 공동 session 처리 페이지 
+	반드시 로그인 후, 인증이 되었을 때만 페이지를 사용하기 위해 공통된
+	jsp페이지를 지정해서 처리..--%>
+<%@ include file="a00_ckSession.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,14 +24,10 @@
 <script type="text/javascript" 
   src="${path}/a00_com/jquery-3.6.0.js"></script>
   
-  
+<%-- 모든 페이지에 공통으로 적용할 내용을 include 페이지 지시자를 통해서
+	호출하여 사용할 수 있게 한다.
+ --%>
 <%
-Member m = (Member)session.getAttribute("mem");
-if(m==null){ // 로그인된 session이 없으면 로그인페이지로 이동 처리하게 처리한다.
-%>
-	<script>alert("로그인이 필요합니다."); location.href="a01_login.jsp";</script>
-<%
-}
 	String proc= request.getParameter("proc"); 
 	String id= request.getParameter("id"); 
 	String pass= request.getParameter("pass"); 
